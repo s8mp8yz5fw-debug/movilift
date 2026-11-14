@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -44,17 +45,18 @@
       background: #0b1424;
     }
 
+    /* SCHERMATA DI CARICAMENTO */
+
     .caricamento {
       position: fixed;
       inset: 0;
       z-index: 10;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 22px;
+      padding: 24px;
       background: #0b1424;
-      color: white;
+      color: #ffffff;
       transition: opacity 0.35s ease;
     }
 
@@ -63,38 +65,117 @@
       pointer-events: none;
     }
 
+    /* PANNELLO CENTRALE */
+
+    .pannello-caricamento {
+      width: 100%;
+      max-width: 390px;
+      padding: 24px 20px;
+      background: #14263b;
+      border: 1px solid #294761;
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    /* INTESTAZIONE */
+
+    .intestazione {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      width: 100%;
+    }
+
     .logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
+      display: block;
+      width: 60px;
+      height: 60px;
+      flex: 0 0 60px;
       object-fit: cover;
-      box-shadow: 0 0 30px rgba(255,255,255,0.08);
+      object-position: center;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(140, 204, 240, 0.25);
+    }
+
+    .testo-intestazione {
+      flex: 1;
+      min-width: 0;
     }
 
     .titolo {
-      font-size: 21px;
+      margin: 0 0 7px;
+      font-size: 17px;
       font-weight: 800;
-      letter-spacing: 1px;
-      text-align: center;
+      letter-spacing: 0.35px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
     }
 
     .sottotitolo {
-      font-size: 14px;
-      color: #aab9ce;
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: rgba(8, 117, 181, 0.13);
+      border: 1px solid rgba(140, 204, 240, 0.16);
+      color: #8CCCF0;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 1.1px;
+    }
+
+    /* SEZIONE CARICAMENTO */
+
+    .sezione-caricamento {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 13px;
+      margin-top: 27px;
+      padding-top: 21px;
+      border-top: 1px solid rgba(140, 204, 240, 0.15);
     }
 
     .spinner {
-      width: 30px;
-      height: 30px;
-      border: 3px solid rgba(255,255,255,0.18);
-      border-top-color: white;
+      width: 28px;
+      height: 28px;
+      border: 3px solid rgba(140, 204, 240, 0.18);
+      border-top-color: #8CCCF0;
       border-radius: 50%;
       animation: gira 0.8s linear infinite;
+    }
+
+    .testo-caricamento {
+      color: #aab8ca;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-align: center;
     }
 
     @keyframes gira {
       to {
         transform: rotate(360deg);
+      }
+    }
+
+    /* SMARTPHONE PICCOLI */
+
+    @media (max-width: 380px) {
+      .pannello-caricamento {
+        padding: 20px 16px;
+      }
+
+      .intestazione {
+        gap: 10px;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+        flex-basis: 52px;
+      }
+
+      .titolo {
+        font-size: 15px;
       }
     }
   </style>
@@ -115,21 +196,41 @@
 
   <div class="caricamento" id="caricamento">
 
-    <img
-      class="logo"
-      src="apple-touch-icon-180.png"
-      alt="Logo MOVILIFT"
-    >
+    <div class="pannello-caricamento">
 
-    <div class="titolo">
-      MOVILIFT SANTA MARIA ROSA NOVA VOLLEY
+      <div class="intestazione">
+
+        <img
+          class="logo"
+          src="apple-touch-icon-180.png"
+          alt="Logo MOVILIFT"
+        >
+
+        <div class="testo-intestazione">
+
+          <div class="titolo">
+            MOVILIFT SANTA MARIA ROSA NOVA VOLLEY
+          </div>
+
+          <div class="sottotitolo">
+            SERIE D MASCHILE
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="sezione-caricamento">
+
+        <div class="spinner"></div>
+
+        <div class="testo-caricamento">
+          Caricamento applicazione...
+        </div>
+
+      </div>
+
     </div>
-
-    <div class="sottotitolo">
-      Caricamento applicazione...
-    </div>
-
-    <div class="spinner"></div>
 
   </div>
 
